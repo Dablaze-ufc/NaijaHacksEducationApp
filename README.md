@@ -21,3 +21,13 @@ and each student has the potential to pass exams like W.A.E.C., G.C.E. and N.E.C
 
 # Proposed Stack
 Mobile development.
+
+# Benefit
+
+- To encourage learning among adults.
+- See to it that learning is done in convinence and on a safe pace.
+- Easy tracking of every students progress and learning curve.
+
+
+# Top-level directory layout
+    └── README.md   
