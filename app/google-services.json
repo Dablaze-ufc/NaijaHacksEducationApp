@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "441118038732",
+    "firebase_url": "https://naijahacks2019-pheonix-squad.firebaseio.com",
+    "project_id": "naijahacks2019-pheonix-squad",
+    "storage_bucket": "naijahacks2019-pheonix-squad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441118038732:android:fea8dd2091d9e589664069",
+        "android_client_info": {
+          "package_name": "com.pheonix_squad.naijahackseducationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441118038732-rv15t7ngemfj0klmd057d1s1cqvso0al.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pheonix_squad.naijahackseducationapp",
+            "certificate_hash": "f7c330c7aab6d7260ab7ca0320f6f770c3625993"
+          }
+        },
+        {
+          "client_id": "441118038732-ovmavheaaaf262k522tngeqqparo88nb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1X8kFvrYzJStUPfsl-_eOh0hcFoq6czw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441118038732-ovmavheaaaf262k522tngeqqparo88nb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
