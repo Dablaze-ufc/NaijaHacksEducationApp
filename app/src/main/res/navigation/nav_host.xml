@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/subjectListFragment">
+
+    <fragment
+        android:id="@+id/subjectListFragment"
+        android:name="com.pheonix_squad.naijahackseducationapp.SubjectListFragment"
+        android:label="fragment_subject_list"
+        tools:layout="@layout/fragment_subject_list" />
+    <fragment
+        android:id="@+id/subjectDetailFragment"
+        android:name="com.pheonix_squad.naijahackseducationapp.SubjectDetailFragment"
+        android:label="fragment_subject_detail"
+        tools:layout="@layout/fragment_subject_detail" />
+    <fragment
+        android:id="@+id/topicPlayerFragment"
+        android:name="com.pheonix_squad.naijahackseducationapp.TopicPlayerFragment"
+        android:label="fragment_topic_player"
+        tools:layout="@layout/fragment_topic_player" />
+</navigation>
