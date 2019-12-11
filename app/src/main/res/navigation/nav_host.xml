@@ -9,7 +9,11 @@
         android:id="@+id/subjectListFragment"
         android:name="com.pheonix_squad.naijahackseducationapp.SubjectListFragment"
         android:label="fragment_subject_list"
-        tools:layout="@layout/fragment_subject_list" />
+        tools:layout="@layout/fragment_subject_list">
+        <action
+            android:id="@+id/action_subjectListFragment_to_subjectDetailFragment"
+            app:destination="@id/subjectDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/subjectDetailFragment"
         android:name="com.pheonix_squad.naijahackseducationapp.SubjectDetailFragment"
