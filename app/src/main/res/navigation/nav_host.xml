@@ -9,7 +9,14 @@
         android:id="@+id/subjectListFragment"
         android:name="com.pheonix_squad.naijahackseducationapp.SubjectListFragment"
         android:label="fragment_subject_list"
-        tools:layout="@layout/fragment_subject_list" />
+        tools:layout="@layout/fragment_subject_list">
+        <action
+            android:id="@+id/action_subjectListFragment_to_subjectDetailFragment"
+            app:destination="@id/subjectDetailFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_playVideoActivity"
+            app:destination="@id/playVideoActivity" />
+    </fragment>
     <fragment
         android:id="@+id/subjectDetailFragment"
         android:name="com.pheonix_squad.naijahackseducationapp.SubjectDetailFragment"
@@ -20,4 +27,9 @@
         android:name="com.pheonix_squad.naijahackseducationapp.TopicPlayerFragment"
         android:label="fragment_topic_player"
         tools:layout="@layout/fragment_topic_player" />
+    <activity
+        android:id="@+id/playVideoActivity"
+        android:name="com.pheonix_squad.naijahackseducationapp.PlayVideoActivity"
+        android:label="activity_play_video"
+        tools:layout="@layout/activity_play_video" />
 </navigation>
