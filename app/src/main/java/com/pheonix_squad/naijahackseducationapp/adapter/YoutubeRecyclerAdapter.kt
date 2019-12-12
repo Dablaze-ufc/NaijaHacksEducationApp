@@ -28,6 +28,7 @@ class YoutubeRecyclerAdapter(private val mathsList: List<Maths>) :
 
     override fun onBindViewHolder(holder: YouTubeViewHolder, position: Int) {
         val maths: Maths = mathsList[position]
+        holder.bind(maths)
         holder.mThumbnail!!.initialize(
             MainActivity().APIKEY,
             object : YouTubeThumbnailView.OnInitializedListener {
