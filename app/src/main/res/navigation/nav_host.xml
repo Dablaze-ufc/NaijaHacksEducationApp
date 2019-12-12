@@ -18,7 +18,14 @@
         android:id="@+id/subjectDetailFragment"
         android:name="com.pheonix_squad.naijahackseducationapp.SubjectDetailFragment"
         android:label="fragment_subject_detail"
-        tools:layout="@layout/fragment_subject_detail" />
+        tools:layout="@layout/fragment_subject_detail">
+        <action
+            android:id="@+id/action_subjectDetailFragment_to_topicPlayerFragment"
+            app:destination="@id/topicPlayerFragment" />
+        <argument
+            android:name="videoId"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/topicPlayerFragment"
         android:name="com.pheonix_squad.naijahackseducationapp.TopicPlayerFragment"

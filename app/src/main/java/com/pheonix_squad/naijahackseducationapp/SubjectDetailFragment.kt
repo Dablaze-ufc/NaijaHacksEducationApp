@@ -7,8 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
+
 import com.pheonix_squad.naijahackseducationapp.adapter.YoutubeRecyclerAdapter
 import com.pheonix_squad.naijahackseducationapp.subject.Maths
 import kotlinx.android.synthetic.main.fragment_subject_detail.*
