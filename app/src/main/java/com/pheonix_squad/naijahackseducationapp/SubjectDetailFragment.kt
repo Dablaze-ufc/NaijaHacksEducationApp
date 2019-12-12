@@ -19,8 +19,8 @@ import kotlinx.android.synthetic.main.fragment_subject_detail.*
 class SubjectDetailFragment : Fragment() {
 
     val mMovies = listOf(
-        Maths("Learn Numbers 1", "bfJiks_rCY8"),
-        Maths("Learn Numbers 2", "CRN7rwblanK")
+        Maths("Learn Numbers 1", "yT3jh2aZN68"),
+        Maths("Learn Numbers 2", "NFJdIK6Ydgc")
     )
 
     override fun onCreateView(

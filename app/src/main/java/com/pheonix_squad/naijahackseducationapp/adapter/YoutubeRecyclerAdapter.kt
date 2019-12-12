@@ -1,11 +1,11 @@
 package com.pheonix_squad.naijahackseducationapp.adapter
 
-import android.content.Context
+
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubeThumbnailLoader
@@ -28,7 +28,7 @@ class YoutubeRecyclerAdapter(private val mathsList: List<Maths>) :
 
     override fun onBindViewHolder(holder: YouTubeViewHolder, position: Int) {
         val maths: Maths = mathsList[position]
-        holder.bind(maths)
+        holder.mTittle!!.text = maths.topicTitle
         holder.mThumbnail!!.initialize(
             MainActivity().APIKEY,
             object : YouTubeThumbnailView.OnInitializedListener {
