@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host"
-    app:startDestination="@id/subjectListFragment">
+    app:startDestination="@id/phoneNumberAuthFragment">
 
     <fragment
         android:id="@+id/subjectListFragment"
@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_subjectListFragment_to_subjectDetailFragment"
             app:destination="@id/subjectDetailFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_playVideoActivity"
+            app:destination="@id/playVideoActivity" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
     </fragment>
     <fragment
         android:id="@+id/subjectDetailFragment"
@@ -32,4 +38,37 @@
         android:name="com.pheonix_squad.naijahackseducationapp.TopicPlayerFragment"
         android:label="fragment_topic_player"
         tools:layout="@layout/fragment_topic_player" />
+
+    <fragment
+        android:id="@+id/phoneNumberAuthFragment"
+        android:name="com.pheonix_squad.naijahackseducationapp.PhoneNumberAuthFragment"
+        android:label="fragment_phone_number_auth"
+        tools:layout="@layout/fragment_phone_number_auth" >
+        <action
+            android:id="@+id/action_phoneNumberAuthFragment_to_otpVerificationFragment"
+            app:destination="@id/otpVerificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpVerificationFragment"
+        android:name="com.pheonix_squad.naijahackseducationapp.OtpVerificationFragment"
+        android:label="fragment_otp_verification"
+        tools:layout="@layout/fragment_otp_verification" >
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment"
+            app:popUpTo="@id/otpVerificationFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <activity
+        android:id="@+id/playVideoActivity"
+        android:name="com.pheonix_squad.naijahackseducationapp.PlayVideoActivity"
+        android:label="activity_play_video"
+        tools:layout="@layout/activity_play_video" />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.pheonix_squad.naijahackseducationapp.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" />
+
 </navigation>
