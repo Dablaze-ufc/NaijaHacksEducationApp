@@ -32,8 +32,8 @@ dependencies {
 
     // Firebase
     // implementation 'com.google.firebase:firebase-analytics:17.2.0' TODO: Caused crashes
-    implementation 'com.google.firebase:firebase-auth:16.0.5'
-    implementation 'com.google.firebase:firebase-database:16.0.4'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-database:19.2.0'
 
     // Country code picker
     implementation 'com.github.joielechong:countrycodepicker:2.4.1'

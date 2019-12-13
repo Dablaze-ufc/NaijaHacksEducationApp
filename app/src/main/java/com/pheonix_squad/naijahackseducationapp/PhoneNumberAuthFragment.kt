@@ -15,6 +15,7 @@ import android.widget.ProgressBar
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.youtube.player.internal.e
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuth
@@ -24,6 +25,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import com.pheonix_squad.naijahackseducationapp.sharedClasses.AppSharedPreference
 import kotlinx.android.synthetic.main.fragment_otp_verification.*
 import kotlinx.android.synthetic.main.fragment_phone_number_auth.*
+import java.lang.Exception
 import java.util.concurrent.TimeUnit
 
 /**
@@ -75,17 +77,18 @@ class PhoneNumberAuthFragment : Fragment() {
                 findNavController().navigate(R.id.subjectListFragment)
             }
 
-            override fun onVerificationFailed(e: FirebaseException?) {
+            override fun onVerificationFailed(p0: FirebaseException) {
                 // This callback is invoked in an invalid request for verification is made,
                 // for instance if the the phone number format is not valid.
-                Log.w(TAG, "onVerificationFailed", e)
+                val e: Exception
+                Log.w(TAG, "onVerificationFailed", p0)
                 verificationInProgress = false
                 hideProgressBar(auth_progress_bar)
                 showButton(verify_phone_number_button)
-                if (e is FirebaseAuthInvalidCredentialsException) {
+                if (p0 is FirebaseAuthInvalidCredentialsException) {
                     // Invalid request
                     phone_number_et.error = "Invalid phone number."
-                } else if (e is FirebaseTooManyRequestsException) {
+                } else if (p0 is FirebaseTooManyRequestsException) {
                     // The SMS quota for the project has been exceeded
                     Snackbar.make(
                         root.findViewById(android.R.id.content), "Quota exceeded.",
@@ -94,8 +97,9 @@ class PhoneNumberAuthFragment : Fragment() {
                 }
             }
 
+
             override fun onCodeSent(
-                verificationId: String?,
+                verificationId: String,
                 token: PhoneAuthProvider.ForceResendingToken
             ) {
                 super.onCodeSent(verificationId, token)
