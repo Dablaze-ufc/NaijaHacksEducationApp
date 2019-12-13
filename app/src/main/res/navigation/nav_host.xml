@@ -13,17 +13,31 @@
         <action
             android:id="@+id/action_subjectListFragment_to_subjectDetailFragment"
             app:destination="@id/subjectDetailFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_playVideoActivity"
+            app:destination="@id/playVideoActivity" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
     </fragment>
     <fragment
         android:id="@+id/subjectDetailFragment"
         android:name="com.pheonix_squad.naijahackseducationapp.SubjectDetailFragment"
         android:label="fragment_subject_detail"
-        tools:layout="@layout/fragment_subject_detail" />
+        tools:layout="@layout/fragment_subject_detail">
+        <action
+            android:id="@+id/action_subjectDetailFragment_to_topicPlayerFragment"
+            app:destination="@id/topicPlayerFragment" />
+        <argument
+            android:name="videoId"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/topicPlayerFragment"
         android:name="com.pheonix_squad.naijahackseducationapp.TopicPlayerFragment"
         android:label="fragment_topic_player"
         tools:layout="@layout/fragment_topic_player" />
+
     <fragment
         android:id="@+id/phoneNumberAuthFragment"
         android:name="com.pheonix_squad.naijahackseducationapp.PhoneNumberAuthFragment"
@@ -44,4 +58,16 @@
             app:popUpTo="@id/otpVerificationFragment"
             app:popUpToInclusive="false" />
     </fragment>
+
+    <activity
+        android:id="@+id/playVideoActivity"
+        android:name="com.pheonix_squad.naijahackseducationapp.PlayVideoActivity"
+        android:label="activity_play_video"
+        tools:layout="@layout/activity_play_video" />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.pheonix_squad.naijahackseducationapp.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" />
+
 </navigation>

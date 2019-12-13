@@ -7,8 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
+
 import com.pheonix_squad.naijahackseducationapp.adapter.YoutubeRecyclerAdapter
 import com.pheonix_squad.naijahackseducationapp.subject.Maths
 import kotlinx.android.synthetic.main.fragment_subject_detail.*
@@ -19,8 +18,8 @@ import kotlinx.android.synthetic.main.fragment_subject_detail.*
 class SubjectDetailFragment : Fragment() {
 
     val mMovies = listOf(
-        Maths("Learn Numbers 1", "bfJiks_rCY8"),
-        Maths("Learn Numbers 2", "CRN7rwblanK")
+        Maths("Learn Numbers 1", "yT3jh2aZN68"),
+        Maths("Learn Numbers 2", "NFJdIK6Ydgc")
     )
 
     override fun onCreateView(
