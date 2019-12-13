@@ -24,6 +24,7 @@
             app:destination="@id/topicPlayerFragment" />
         <argument
             android:name="videoId"
+            android:defaultValue=""
             app:argType="string" />
     </fragment>
     <fragment

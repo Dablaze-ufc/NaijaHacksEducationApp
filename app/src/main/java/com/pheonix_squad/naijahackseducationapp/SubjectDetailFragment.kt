@@ -37,10 +37,4 @@ class SubjectDetailFragment : Fragment() {
         }
     }
 
-    companion object {
-        fun newInstace(): SubjectDetailFragment = SubjectDetailFragment()
-    }
-
-
-
 }
