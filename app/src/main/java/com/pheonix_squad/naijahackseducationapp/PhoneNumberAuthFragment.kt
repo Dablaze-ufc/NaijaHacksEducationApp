@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -21,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_phone_number_auth.*
 import java.util.concurrent.TimeUnit
 
 /**
- * A simple [Fragment] subclass.
+ * Created by SegunFrancis
  */
 class PhoneNumberAuthFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
@@ -35,6 +37,14 @@ class PhoneNumberAuthFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pref = AppSharedPreference(requireContext())
+        auth = FirebaseAuth.getInstance()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (auth.currentUser != null) {
+            findNavController().navigate(R.id.subjectListFragment)
+        }
     }
 
     override fun onCreateView(
@@ -45,10 +55,8 @@ class PhoneNumberAuthFragment : Fragment() {
         if (savedInstanceState != null) {
             onViewStateRestored(savedInstanceState)
         }
-        auth = FirebaseAuth.getInstance()
-        // Initialize phone auth callbacks
-        // [START phone_auth_callbacks]
 
+        // Initialize phone auth callbacks
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 // This callback will be invoked in two situations:
@@ -58,10 +66,9 @@ class PhoneNumberAuthFragment : Fragment() {
                 //     detect the incoming verification SMS and perform verification without
                 //     user action.
                 Log.d(TAG, "onVerificationCompleted:$credential")
-                // [START_EXCLUDE silent]
                 verificationInProgress = false
                 pref.setCredential(credential)
-                // Update UI
+                findNavController().navigate(R.id.subjectListFragment)
             }
 
             override fun onVerificationFailed(e: FirebaseException?) {
@@ -69,21 +76,18 @@ class PhoneNumberAuthFragment : Fragment() {
                 // for instance if the the phone number format is not valid.
                 Log.w(TAG, "onVerificationFailed", e)
                 verificationInProgress = false
-
+                hideProgressBar(auth_progress_bar)
+                showButton(verify_phone_number_button)
                 if (e is FirebaseAuthInvalidCredentialsException) {
                     // Invalid request
-                    // [START_EXCLUDE]
                     phone_number_et.error = "Invalid phone number."
-                    // [END_EXCLUDE]
                 } else if (e is FirebaseTooManyRequestsException) {
                     // The SMS quota for the project has been exceeded
-                    // [START_EXCLUDE]
                     Snackbar.make(
                         root.findViewById(android.R.id.content), "Quota exceeded.",
                         Snackbar.LENGTH_SHORT
                     ).show()
                 }
-                // Show a message and update the UI
             }
 
             override fun onCodeSent(
@@ -101,10 +105,11 @@ class PhoneNumberAuthFragment : Fragment() {
                 storedVerificationId = verificationId
                 resendToken = token
 
-                // [START_EXCLUDE]
                 pref.setVerificationId(verificationId)
                 pref.setAuthToken(token)
                 findNavController().navigate(R.id.action_phoneNumberAuthFragment_to_otpVerificationFragment)
+                hideProgressBar(auth_progress_bar)
+                showButton(verify_phone_number_button)
             }
         }
         return root
@@ -122,18 +127,24 @@ class PhoneNumberAuthFragment : Fragment() {
         }
     }*/
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        //outState.putBoolean("key_verify_in_progress", verificationInProgress)
-    }
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
-        //verificationInProgress = savedInstanceState!!.getBoolean("key_verify_in_progress")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        country_picker.registerPhoneNumberTextView(phone_number_et)
+        verify_phone_number_button.setOnClickListener {
+            if (validatePhoneNumber()) {
+                val countryCode = country_picker.selectedCountryCode
+                val number = phone_number_et.text.toString()
+                val phoneNumber = "+".plus(countryCode.plus(number.removePrefix("0")))
+                Log.d("PhoneNumber", phoneNumber)
+                startPhoneNumberVerification(phoneNumber)
+                showProgressBar(auth_progress_bar)
+                hideButton(verify_phone_number_button)
+            }
+        }
     }
 
     private fun startPhoneNumberVerification(phoneNumber: String) {
-        // [START start_phone_auth]
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
             phoneNumber, // Phone number to verify
             120, // Timeout duration
@@ -145,7 +156,6 @@ class PhoneNumberAuthFragment : Fragment() {
         verificationInProgress = true
     }
 
-    // [START resend_verification]
     private fun resendVerificationCode(
         phoneNumber: String,
         token: PhoneAuthProvider.ForceResendingToken?
@@ -160,27 +170,28 @@ class PhoneNumberAuthFragment : Fragment() {
         ) // ForceResendingToken from callbacks
     }
 
-
     private fun validatePhoneNumber(): Boolean {
         val phoneNumber = phone_number_et.text.toString()
         if (TextUtils.isEmpty(phoneNumber)) {
             phone_number_et.error = "Invalid phone number"
             return false
         }
-        if (!country_picker.isValid) {
-            phone_number_et.error = "Invalid phone number"
-            return false
-        }
         return true
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        country_picker.registerPhoneNumberTextView(phone_number_et)
-        verify_phone_number_button.setOnClickListener {
-            if (validatePhoneNumber()) {
-                startPhoneNumberVerification(phone_number_et.text.toString())
-            }
-        }
+    private fun showProgressBar(progressBar: ProgressBar) {
+        progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar(progressBar: ProgressBar) {
+        progressBar.visibility = View.INVISIBLE
+    }
+
+    private fun showButton(button: MaterialButton) {
+        button.visibility = View.VISIBLE
+    }
+
+    private fun hideButton(button: MaterialButton) {
+        button.visibility = View.GONE
     }
 }

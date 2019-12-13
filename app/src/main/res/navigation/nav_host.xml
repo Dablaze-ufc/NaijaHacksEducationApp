@@ -37,5 +37,11 @@
         android:id="@+id/otpVerificationFragment"
         android:name="com.pheonix_squad.naijahackseducationapp.OtpVerificationFragment"
         android:label="fragment_otp_verification"
-        tools:layout="@layout/fragment_otp_verification" />
+        tools:layout="@layout/fragment_otp_verification" >
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_subjectListFragment"
+            app:destination="@id/subjectListFragment"
+            app:popUpTo="@id/otpVerificationFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
 </navigation>
