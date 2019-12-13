@@ -2,12 +2,15 @@ package com.pheonix_squad.naijahackseducationapp
 
 
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextUtils
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ProgressBar
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
@@ -19,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.pheonix_squad.naijahackseducationapp.sharedClasses.AppSharedPreference
+import kotlinx.android.synthetic.main.fragment_otp_verification.*
 import kotlinx.android.synthetic.main.fragment_phone_number_auth.*
 import java.util.concurrent.TimeUnit
 
@@ -115,22 +119,23 @@ class PhoneNumberAuthFragment : Fragment() {
         return root
     }
 
-   /* override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        //updateUI(currentUser)
+    /* override fun onStart() {
+         super.onStart()
+         // Check if user is signed in (non-null) and update UI accordingly.
+         val currentUser = auth.currentUser
+         //updateUI(currentUser)
 
-        // [START_EXCLUDE]
-        if (verificationInProgress && validatePhoneNumber()) {
-            startPhoneNumberVerification(phone_number_et.text.toString())
-        }
-    }*/
+         // [START_EXCLUDE]
+         if (verificationInProgress && validatePhoneNumber()) {
+             startPhoneNumberVerification(phone_number_et.text.toString())
+         }
+     }*/
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         country_picker.registerPhoneNumberTextView(phone_number_et)
+
         verify_phone_number_button.setOnClickListener {
             if (validatePhoneNumber()) {
                 val countryCode = country_picker.selectedCountryCode

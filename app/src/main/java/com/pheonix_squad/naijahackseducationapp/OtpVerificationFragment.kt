@@ -2,11 +2,15 @@ package com.pheonix_squad.naijahackseducationapp
 
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextUtils
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
@@ -43,14 +47,92 @@ class OtpVerificationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        otp_et_1.addTextChangedListener(
+            GenericTextWatcher(
+                otp_et_1,
+                otp_et_1,
+                otp_et_2,
+                otp_et_3,
+                otp_et_4,
+                otp_et_5,
+                otp_et_6
+            )
+        )
+        otp_et_2.addTextChangedListener(
+            GenericTextWatcher(
+                otp_et_2,
+                otp_et_1,
+                otp_et_2,
+                otp_et_3,
+                otp_et_4,
+                otp_et_5,
+                otp_et_6
+            )
+        )
+        otp_et_3.addTextChangedListener(
+            GenericTextWatcher(
+                otp_et_3,
+                otp_et_1,
+                otp_et_2,
+                otp_et_3,
+                otp_et_4,
+                otp_et_5,
+                otp_et_6
+            )
+        )
+        otp_et_4.addTextChangedListener(
+            GenericTextWatcher(
+                otp_et_4,
+                otp_et_1,
+                otp_et_2,
+                otp_et_3,
+                otp_et_4,
+                otp_et_5,
+                otp_et_6
+            )
+        )
+        otp_et_5.addTextChangedListener(
+            GenericTextWatcher(
+                otp_et_5,
+                otp_et_1,
+                otp_et_2,
+                otp_et_3,
+                otp_et_4,
+                otp_et_5,
+                otp_et_6
+            )
+        )
+        otp_et_6.addTextChangedListener(
+            GenericTextWatcher(
+                otp_et_6,
+                otp_et_1,
+                otp_et_2,
+                otp_et_3,
+                otp_et_4,
+                otp_et_5,
+                otp_et_6
+            )
+        )
+
         sign_in_button.setOnClickListener {
-            showProgressBar(otp_progress_bar)
-            hideButton(sign_in_button)
-            val code =
-                otp_et_1.text.toString().plus(otp_et_2.text).plus(otp_et_3.text).plus(otp_et_4.text)
-                    .plus(otp_et_5.text).plus(otp_et_6.text)
-            val credential = PhoneAuthProvider.getCredential(pref.getVerificationId()!!, code)
-            signInWithPhoneAuthCredential(credential)
+            if (!(TextUtils.isEmpty(otp_et_1.text) || TextUtils.isEmpty(otp_et_2.text) || TextUtils.isEmpty(
+                    otp_et_3.text
+                ) || TextUtils.isEmpty(otp_et_4.text) || TextUtils.isEmpty(otp_et_5.text) || TextUtils.isEmpty(
+                    otp_et_6.text
+                ))
+            ) {
+                showProgressBar(otp_progress_bar)
+                hideButton(sign_in_button)
+                val code =
+                    otp_et_1.text.toString().plus(otp_et_2.text).plus(otp_et_3.text)
+                        .plus(otp_et_4.text)
+                        .plus(otp_et_5.text).plus(otp_et_6.text)
+                val credential = PhoneAuthProvider.getCredential(pref.getVerificationId()!!, code)
+                signInWithPhoneAuthCredential(credential)
+            } else {
+                Toast.makeText(requireContext(), "Some fields are empty", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -96,5 +178,67 @@ class OtpVerificationFragment : Fragment() {
 
     private fun hideButton(button: MaterialButton) {
         button.visibility = View.GONE
+    }
+
+    class GenericTextWatcher constructor(
+        private val view: View,
+        private val et1: EditText,
+        private val et2: EditText,
+        private val et3: EditText,
+        private val et4: EditText,
+        private val et5: EditText,
+        private val et6: EditText
+    ) : TextWatcher {
+        override fun afterTextChanged(editable: Editable?) {
+            val text = editable.toString()
+            when (view.id) {
+                R.id.otp_et_1 -> {
+                    if (text.length == 1) {
+                        et2.requestFocus()
+                    }
+                }
+                R.id.otp_et_2 -> {
+                    if (text.length == 1) {
+                        et3.requestFocus()
+                    } else if (text.length == 0) {
+                        et1.requestFocus()
+                    }
+                }
+                R.id.otp_et_3 -> {
+                    if (text.length == 1) {
+                        et4.requestFocus()
+                    } else if (text.length == 0) {
+                        et2.requestFocus()
+                    }
+                }
+                R.id.otp_et_4 -> {
+                    if (text.length == 1) {
+                        et5.requestFocus()
+                    } else if (text.length == 0) {
+                        et3.requestFocus()
+                    }
+                }
+                R.id.otp_et_5 -> {
+                    if (text.length == 1) {
+                        et6.requestFocus()
+                    } else if (text.length == 0) {
+                        et4.requestFocus()
+                    }
+                }
+                R.id.otp_et_6 -> {
+                    if (text.length == 0) {
+                        et5.requestFocus()
+                    }
+                }
+            }
+        }
+
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+        }
+
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+        }
     }
 }
