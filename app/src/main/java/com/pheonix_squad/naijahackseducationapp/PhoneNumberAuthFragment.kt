@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.pheonix_squad.naijahackseducationapp.sharedClasses.AppSharedPreference
 import kotlinx.android.synthetic.main.fragment_phone_number_auth.*
 import java.util.concurrent.TimeUnit
 
@@ -24,12 +25,17 @@ import java.util.concurrent.TimeUnit
  */
 class PhoneNumberAuthFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
-
+    private lateinit var pref: AppSharedPreference
     private val TAG = "PhoneNumberAuthFragment"
     private var verificationInProgress = false
     private var storedVerificationId: String? = ""
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        pref = AppSharedPreference(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,9 +60,8 @@ class PhoneNumberAuthFragment : Fragment() {
                 Log.d(TAG, "onVerificationCompleted:$credential")
                 // [START_EXCLUDE silent]
                 verificationInProgress = false
-
+                pref.setCredential(credential)
                 // Update UI
-                signInWithPhoneAuthCredential(credential)
             }
 
             override fun onVerificationFailed(e: FirebaseException?) {
@@ -97,6 +102,8 @@ class PhoneNumberAuthFragment : Fragment() {
                 resendToken = token
 
                 // [START_EXCLUDE]
+                pref.setVerificationId(verificationId)
+                pref.setAuthToken(token)
                 findNavController().navigate(R.id.action_phoneNumberAuthFragment_to_otpVerificationFragment)
             }
         }
@@ -151,35 +158,6 @@ class PhoneNumberAuthFragment : Fragment() {
             callbacks, // OnVerificationStateChangedCallbacks
             token
         ) // ForceResendingToken from callbacks
-    }
-
-    // [START sign_in_with_phone]
-    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(requireActivity()) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithCredential:success")
-
-                    val user = task.result?.user
-                    // [START_EXCLUDE]
-                    //updateUI(STATE_SIGNIN_SUCCESS, user)
-                    // [END_EXCLUDE]
-                } else {
-                    // Sign in failed, display a message and update the UI
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        // The verification code entered was invalid
-                        // [START_EXCLUDE silent]
-                        phone_number_et.error = "Invalid code."
-                        // [END_EXCLUDE]
-                    }
-                    // [START_EXCLUDE silent]
-                    // Update UI
-                    //updateUI(STATE_SIGNIN_FAILED)
-                    // [END_EXCLUDE]
-                }
-            }
     }
 
 
