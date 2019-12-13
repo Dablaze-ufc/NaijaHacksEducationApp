@@ -90,8 +90,6 @@ class YouTubeViewHolder(inflater: LayoutInflater, parent: ViewGroup) : RecyclerV
     fun bind(math: Maths) {
         mTittle?.text = math.topicTitle
         youtubeCardView!!.setOnClickListener { view: View ->
-            view.findNavController()
-                .navigate(R.id.action_subjectDetailFragment_to_topicPlayerFragment)
 
         }
 
