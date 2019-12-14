@@ -103,4 +103,5 @@
                 app:layout_constraintTop_toTopOf="@+id/image_english" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

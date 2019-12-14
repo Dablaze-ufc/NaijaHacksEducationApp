@@ -16,6 +16,7 @@
         <action
             android:id="@+id/action_subjectListFragment_to_playVideoActivity"
             app:destination="@id/playVideoActivity" />
+
     </fragment>
     <fragment
         android:id="@+id/subjectDetailFragment"
@@ -32,4 +33,5 @@
         android:name="com.pheonix_squad.naijahackseducationapp.PlayVideoActivity"
         android:label="activity_play_video"
         tools:layout="@layout/activity_play_video" />
+    />
 </navigation>
