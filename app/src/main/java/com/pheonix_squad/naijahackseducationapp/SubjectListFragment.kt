@@ -32,10 +32,7 @@ class SubjectListFragment : Fragment() {
             view.findNavController()
                 .navigate(R.id.action_subjectListFragment_to_playVideoActivity)
         }
-        button.setOnClickListener { view ->
-            view.findNavController()
-                .navigate(R.id.action_subjectListFragment_to_quizFragment)
-        }
+
     }
 
 
