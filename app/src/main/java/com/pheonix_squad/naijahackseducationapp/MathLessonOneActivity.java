@@ -24,7 +24,7 @@ import com.google.android.youtube.player.YouTubePlayerView;
 public class MathLessonOneActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     public static final String API_KEY = "AIzaSyDH6Ct6DG1fmnTxnw9l SLDN_3QcRPHmjco";
-    public static final String YOUTUBE_VIDEO_CODE = "IgqL2FwoAxo";   // key for STUDY VIDEO!!
+    public static final String YOUTUBE_VIDEO_CODE = "LvvFW4u8hsQ&pbjreload=10";   // key for STUDY VIDEO!!
     public static final int RECOVERY_DIALOG_REQUEST = 1;
     private String nail;
     private YouTubePlayerView youTubeView;

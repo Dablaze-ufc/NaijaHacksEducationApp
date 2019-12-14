@@ -13,17 +13,24 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MathLessonTwoActivity"></activity>
         <activity android:name=".MathLessonOneActivity" />
-        <activity android:name=".SelectMathLessonActivity" />
-        <activity android:name=".EnglishLessonThreeActivity" />
-        <activity android:name=".EnglishLessonTwoActivity" />
-        <activity android:name=".SelecteEnglishVideoActivity">
+
+        <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".SelectMathLessonActivity" />
+        <activity android:name=".EnglishLessonThreeActivity" />
+        <activity android:name=".EnglishLessonTwoActivity" />
+        <activity android:name=".SelecteEnglishVideoActivity"/>
+
+
         <activity android:name=".PlayVideoActivity" />
+
     </application>
 
 </manifest>
