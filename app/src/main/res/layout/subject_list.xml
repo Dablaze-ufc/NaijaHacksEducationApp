@@ -7,7 +7,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_topic"
+        android:id="@+id/card_topic2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto_medium"
-                android:text="@string/topic_text"
+                android:text=""
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="@+id/youTube_thumb"
                 app:layout_constraintStart_toStartOf="@+id/youTube_thumb"

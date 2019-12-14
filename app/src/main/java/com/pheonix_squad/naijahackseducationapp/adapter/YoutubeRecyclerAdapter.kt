@@ -5,12 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubeThumbnailLoader
@@ -86,7 +84,7 @@ class YouTubeViewHolder(inflater: LayoutInflater, parent: ViewGroup) : RecyclerV
     init {
         mTittle = itemView.findViewById(R.id.text_tittle)
         mThumbnail = itemView.findViewById(R.id.youTube_thumb)
-        youtubeCardView = itemView.findViewById(R.id.card_topic)
+        youtubeCardView = itemView.findViewById(R.id.card_topic2)
     }
 
 
