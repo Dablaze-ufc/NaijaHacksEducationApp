@@ -60,7 +60,7 @@ class SubjectListFragment : Fragment() {
 
         card_maths.setOnClickListener {
             view.findNavController()
-                .navigate(R.id.action_subjectListFragment_to_subjectDetailFragment)
+                .navigate(R.id.action_subjectListFragment_to_selectMathLessonActivity)
         }
 
         card_english.setOnClickListener {

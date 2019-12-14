@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_subjectListFragment_to_selecteEnglishVideoActivity"
             app:destination="@id/selecteEnglishVideoActivity" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_selectMathLessonActivity"
+            app:destination="@id/selectMathLessonActivity" />
     </fragment>
     <fragment
         android:id="@+id/subjectDetailFragment"
@@ -56,5 +59,10 @@
         android:name="com.pheonix_squad.naijahackseducationapp.SelecteEnglishVideoActivity"
         android:label="activity_selecte_english_video"
         tools:layout="@layout/activity_selecte_english_video" />
+    <activity
+        android:id="@+id/selectMathLessonActivity"
+        android:name="com.pheonix_squad.naijahackseducationapp.SelectMathLessonActivity"
+        android:label="activity_select_math_lesson"
+        tools:layout="@layout/activity_select_math_lesson" />
 
 </navigation>
