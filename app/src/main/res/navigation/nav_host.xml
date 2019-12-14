@@ -17,6 +17,9 @@
         <argument
             android:name="test"
             app:argType="string" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_selecteEnglishVideoActivity"
+            app:destination="@id/selecteEnglishVideoActivity" />
     </fragment>
     <fragment
         android:id="@+id/subjectDetailFragment"
@@ -48,5 +51,10 @@
             app:popUpTo="@id/otpVerificationFragment"
             app:popUpToInclusive="false" />
     </fragment>
+    <activity
+        android:id="@+id/selecteEnglishVideoActivity"
+        android:name="com.pheonix_squad.naijahackseducationapp.SelecteEnglishVideoActivity"
+        android:label="activity_selecte_english_video"
+        tools:layout="@layout/activity_selecte_english_video" />
 
 </navigation>

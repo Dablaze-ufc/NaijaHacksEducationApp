@@ -65,7 +65,7 @@ class SubjectListFragment : Fragment() {
 
         card_english.setOnClickListener {
             view.findNavController()
-                .navigate(R.id.action_subjectListFragment_to_subjectDetailFragment, argsBunle)
+                .navigate(R.id.action_subjectListFragment_to_selecteEnglishVideoActivity)
 
         }
 
