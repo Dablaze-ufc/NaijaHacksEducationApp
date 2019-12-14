@@ -14,12 +14,15 @@ public class PlayVideoActivity extends YouTubeBaseActivity implements YouTubePla
     public static final String API_KEY = "AIzaSyDH6Ct6DG1fmnTxnw9l SLDN_3QcRPHmjco";
     public static final String YOUTUBE_VIDEO_CODE = "EgzHCuzVKb8";   // key for STUDY VIDEO!!
     public static final int RECOVERY_DIALOG_REQUEST = 1;
+    private String nail;
     private YouTubePlayerView youTubeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_video);
+
+        nail = getIntent().getStringExtra("nail");
 
         youTubeView = (YouTubePlayerView)findViewById(R.id.youtubeview);
         youTubeView.initialize(API_KEY, this);
@@ -33,7 +36,7 @@ public class PlayVideoActivity extends YouTubeBaseActivity implements YouTubePla
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
         if(!wasRestored){
-            player.cueVideo(YOUTUBE_VIDEO_CODE);
+            player.cueVideo(nail);
             player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
         }
     }

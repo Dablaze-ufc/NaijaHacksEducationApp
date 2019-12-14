@@ -21,6 +21,11 @@ class SubjectDetailFragment : Fragment() {
         Maths("Learn Numbers 1", "yT3jh2aZN68"),
         Maths("Learn Numbers 2", "NFJdIK6Ydgc")
     )
+    val mEnglish = listOf(
+        Maths("The English Alphabet (Beginner, Level 1))", "EgzHCuzVKb8"),
+        Maths("Subject Pronouns (Beginner, Level 1)", "QcqPN727NZA"),
+        Maths("There is / There are (Beginner English) with Teacher Tom", "3nNSba8P4mw")
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,9 +36,14 @@ class SubjectDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val compare = arguments!!.getString("maths_key")
         recycler_topic.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = YoutubeRecyclerAdapter(mMovies)
+            adapter = if (compare == "english") {
+                YoutubeRecyclerAdapter(mEnglish)
+            } else {
+                YoutubeRecyclerAdapter(mMovies)
+            }
         }
     }
 

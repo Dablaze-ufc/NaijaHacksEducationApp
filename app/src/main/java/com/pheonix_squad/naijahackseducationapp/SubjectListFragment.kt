@@ -1,12 +1,14 @@
 package com.pheonix_squad.naijahackseducationapp
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -35,7 +37,10 @@ class SubjectListFragment : Fragment() {
                 dialog.create().show()
             }
         }
-        requireActivity().onBackPressedDispatcher.addCallback(this@SubjectListFragment, onBackPressedCallback)
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this@SubjectListFragment,
+            onBackPressedCallback
+        )
     }
 
     override fun onCreateView(
@@ -45,19 +50,24 @@ class SubjectListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
-        card_maths.setOnClickListener { view ->
+        val argsBunle = Bundle()
+        val maths = "Mathemathics"
+        val english = "english"
+        argsBunle.putString("maths_key", english)
+        val fragment = SubjectDetailFragment()
+        fragment.arguments = argsBunle
+
+
+        card_maths.setOnClickListener {
             view.findNavController()
                 .navigate(R.id.action_subjectListFragment_to_subjectDetailFragment)
         }
 
-        card_english.setOnClickListener { view ->
+        card_english.setOnClickListener {
             view.findNavController()
-                .navigate(R.id.action_subjectListFragment_to_playVideoActivity)
+                .navigate(R.id.action_subjectListFragment_to_subjectDetailFragment, argsBunle)
+
         }
-        button.setOnClickListener { view ->
-            view.findNavController()
-                .navigate(R.id.action_subjectListFragment_to_quizFragment)
-        }
+
     }
 }

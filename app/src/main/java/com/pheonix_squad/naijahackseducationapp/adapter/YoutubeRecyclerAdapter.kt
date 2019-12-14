@@ -1,6 +1,8 @@
 package com.pheonix_squad.naijahackseducationapp.adapter
 
 
+import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +16,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubeThumbnailLoader
 import com.google.android.youtube.player.YouTubeThumbnailView
 import com.pheonix_squad.naijahackseducationapp.MainActivity
+import com.pheonix_squad.naijahackseducationapp.PlayVideoActivity
 import com.pheonix_squad.naijahackseducationapp.R
 import com.pheonix_squad.naijahackseducationapp.subject.Maths
 
@@ -34,7 +37,6 @@ class YoutubeRecyclerAdapter(private val mathsList: List<Maths>) :
     override fun onBindViewHolder(holder: YouTubeViewHolder, position: Int) {
         val maths: Maths = mathsList[position]
         holder.bind(maths)
-        holder.mTittle!!.text = maths.topicTitle
         holder.mThumbnail!!.initialize(
             MainActivity().APIKEY,
             object : YouTubeThumbnailView.OnInitializedListener {
@@ -87,11 +89,19 @@ class YouTubeViewHolder(inflater: LayoutInflater, parent: ViewGroup) : RecyclerV
         youtubeCardView = itemView.findViewById(R.id.card_topic)
     }
 
-    fun bind(math: Maths) {
-        mTittle?.text = math.topicTitle
-        youtubeCardView!!.setOnClickListener { view: View ->
 
+    fun bind(math: Maths) {
+        val argsActivityBundle = Bundle()
+        argsActivityBundle.putString("nail", math.youtubeThumbnail)
+        val context = youtubeCardView!!.context
+        youtubeCardView!!.setOnClickListener {
+            val intent = Intent(context, PlayVideoActivity::class.java)
+            intent.putExtra("nail", math.youtubeThumbnail)
+            context.startActivity(intent)
         }
+
+
+        mTittle?.text = math.topicTitle
 
     }
 }
