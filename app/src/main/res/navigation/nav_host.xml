@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host"
-    app:startDestination="@id/subjectListFragment">
+    app:startDestination="@id/phoneNumberAuthFragment">
 
     <fragment
         android:id="@+id/subjectListFragment"
@@ -48,11 +48,5 @@
             app:popUpTo="@id/otpVerificationFragment"
             app:popUpToInclusive="false" />
     </fragment>
-
-    <fragment
-        android:id="@+id/quizFragment"
-        android:name="com.pheonix_squad.naijahackseducationapp.QuizFragment"
-        android:label="fragment_quiz"
-        tools:layout="@layout/fragment_quiz" />
 
 </navigation>
