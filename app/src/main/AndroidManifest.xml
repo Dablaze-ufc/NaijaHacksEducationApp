@@ -13,15 +13,21 @@
         android:theme="@style/AppTheme">
         <activity android:name=".EnglishLessonThreeActivity"></activity>
         <activity android:name=".EnglishLessonTwoActivity" />
-        <activity android:name=".SelecteEnglishVideoActivity" />
-        <activity android:name=".PlayVideoActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SelecteEnglishVideoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PlayVideoActivity" />
+<!--        <activity android:name=".MainActivity">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
     </application>
 
 </manifest>
