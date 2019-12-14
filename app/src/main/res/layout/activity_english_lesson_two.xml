@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EnglishLessonTwoActivity">
+
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtubeview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/take_quiz"
+        style="@style/QuizView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/play_rounded_button"
+        android:text="TAKE QUIZ"
+        app:layout_constraintStart_toStartOf="@+id/youtubeview"
+        app:layout_constraintEnd_toEndOf="@+id/youtubeview"
+        app:layout_constraintTop_toBottomOf="@+id/youtubeview" />
+
+
+    <ScrollView
+        android:id="@+id/quiz_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/take_quiz">
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            tools:context=".MainActivity">
+
+
+            <TextView
+                android:id="@+id/Question_1"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Which alphabet comes after G " />
+
+            <RadioGroup
+                android:id="@+id/Question_1_Options"
+                style="@style/QuestionsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/option_A"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" B " />
+
+                <RadioButton
+                    android:id="@+id/option_B"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="H" />
+
+                <RadioButton
+                    android:id="@+id/option_C"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="A" />
+
+                <RadioButton
+                    android:id="@+id/option_D"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="D" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/Question_2"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Which alphabet comes after A  " />
+
+            <RadioGroup
+                android:id="@+id/Question_2_Options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/Option_2A"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="B" />
+
+                <RadioButton
+                    android:id="@+id/Option_2B"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Z" />
+
+                <RadioButton
+                    android:id="@+id/Option_2C"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="E" />
+
+                <RadioButton
+                    android:id="@+id/Option_2D"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="M" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/Question_3"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="16dp"
+                android:text="which is a two letter word ?" />
+
+            <RadioGroup
+                android:id="@+id/Question_3_Options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/Option_3A"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bat" />
+
+                <RadioButton
+                    android:id="@+id/Option_3B"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="As" />
+
+                <RadioButton
+                    android:id="@+id/Option_3C"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="House" />
+
+                <RadioButton
+                    android:id="@+id/Option_3D"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Salt" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/Question_4"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="16dp"
+                android:text="which is a three letter word ?" />
+
+            <RadioGroup
+                android:id="@+id/Question_4_Options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/Option_4A"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Plate" />
+
+                <RadioButton
+                    android:id="@+id/Option_4B"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fry" />
+
+                <RadioButton
+                    android:id="@+id/Option_4C"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mansion" />
+
+                <RadioButton
+                    android:id="@+id/Option_4D"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fart" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/Question_5"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Identify small letter H " />
+
+            <RadioGroup
+                android:id="@+id/Question_5_Options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/Option_5A"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="c" />
+
+                <RadioButton
+                    android:id="@+id/Option_5B"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="b" />
+
+                <RadioButton
+                    android:id="@+id/Option_5C"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="h" />
+
+                <RadioButton
+                    android:id="@+id/Option_5D"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="y" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/Question_6"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Identify small letter A " />
+
+            <RadioGroup
+                android:id="@+id/Question_6_Options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/Option_6A"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="d" />
+
+                <RadioButton
+                    android:id="@+id/Option_6B"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="a" />
+
+                <RadioButton
+                    android:id="@+id/Option_6C"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="q" />
+
+                <RadioButton
+                    android:id="@+id/Option_6D"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="j" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/Question_7"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Identify capital letter  b" />
+
+            <RadioGroup
+                android:id="@+id/Question_7_Options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/Option_7A"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="a" />
+
+                <RadioButton
+                    android:id="@+id/Option_7B"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="l" />
+
+                <RadioButton
+                    android:id="@+id/Option_7C"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="s" />
+
+                <RadioButton
+                    android:id="@+id/Option_7D"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="B" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/Question_8"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="16dp"
+                android:text="example of a four letter word is ?" />
+
+            <RadioGroup
+                android:id="@+id/Question_8_Options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/Option_8A"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="As" />
+
+                <RadioButton
+                    android:id="@+id/Option_8B"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Can" />
+
+                <RadioButton
+                    android:id="@+id/Option_8C"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Salt" />
+
+                <RadioButton
+                    android:id="@+id/Option_8D"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Village" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/Question_9"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="16dp"
+                android:text="identify small letter R" />
+
+            <RadioGroup
+                android:id="@+id/Question_9_Options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/Option_9A"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="q" />
+
+                <RadioButton
+                    android:id="@+id/Option_9B"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="p" />
+
+                <RadioButton
+                    android:id="@+id/Option_9C"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="r" />
+
+                <RadioButton
+                    android:id="@+id/Option_9D"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="z" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/Question_10"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="16dp"
+                android:text="B is for Ball, just as A is for ?" />
+
+            <RadioGroup
+                android:id="@+id/Question_10_Options"
+                style="@style/QuestionsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/Option_10A"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Car" />
+
+                <RadioButton
+                    android:id="@+id/Option_10B"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="House" />
+
+                <RadioButton
+                    android:id="@+id/Option_10C"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Apple" />
+
+                <RadioButton
+                    android:id="@+id/Option_10D"
+                    style="@style/QuestionsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Boat" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/SubmitButton"
+                style="@style/AnswersView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/play_rounded_button"
+                android:text="SUBMIT" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
